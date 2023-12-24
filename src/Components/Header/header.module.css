@@ -1,27 +1,46 @@
-
-.icon{
+.icon {
     width: 48px;
     height: 48px;
 }
 
-.logo{
+.logo {
     width: 70px;
     height: 70px;
 }
 
-.header{
+.header {
     display: flex;
     justify-content: space-between;
 }
 
-.nav__bar{
+.navBar {
     display: flex;
     flex-direction: row;
     gap: 32px;
 }
 
-.nav__barElem{
+.navBarElem {
     text-align: center;
     text-decoration: none;
 }
+
+.navBarText {
+    /* Добавь стили по желанию */
+}
+
+
+.countBasket {
+    background-color: green;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+
 
