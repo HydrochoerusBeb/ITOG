@@ -1,0 +1,73 @@
+.button {
+    /* padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; */
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    background-color: white;
+    border: none;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 16px 32px 16px 32px;
+    /* width: 35vw; */
+    width: 90%;
+    height: 100%;
+  }
+  
+
+  .green {
+    background-color: rgba(51, 153, 51, 1);
+    color: white;
+    outline: none;
+}
+
+/* .green:hover{
+  background-color: rgba(51, 153, 51, 1);
+} */
+
+.green:active{
+  background-color: rgba(51, 153, 51, 1);
+}
+
+.sended {
+  /* background-color: white; */
+  font-weight: 600;
+  font-size: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  padding: 16px, 32px, 16px, 32px;
+  gap: 10px;
+  width: 218px;
+  height: 58px;
+  background-color: transparent;
+    border: none;
+    color: rgba(51, 153, 51, 1);
+}
+
+
+
+/* .disc{
+  font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    background-color: white;
+    border: none;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 16px, 32px, 16px, 32px;
+    width: 35vw;
+    height: 5vw;
+} */

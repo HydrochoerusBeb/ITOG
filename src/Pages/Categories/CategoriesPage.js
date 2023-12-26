@@ -1,4 +1,3 @@
-
 import React from 'react';
 import s from './CategoriesPage.module.css';
 import CategoryList from './CategoriesList';

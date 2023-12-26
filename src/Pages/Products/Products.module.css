@@ -59,3 +59,14 @@
     color: #888;
     font-size: 20px;
 }
+
+.salePercentContainer{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.productListItem{
+    position: relative;
+    
+}

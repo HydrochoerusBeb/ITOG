@@ -35,9 +35,13 @@
 
 .line {
     height: 1px;
+    width: 100px;
     background-color: rgba(221, 221, 221, 1);
+    width: calc(100vw - 90vw);
 }
 
+
+/* 
 @media (width < 4000px) {
     .line {
         width: calc(var(--base-width) * 7vw);
@@ -86,4 +90,4 @@
         flex-direction: column;
         align-items: self-start;
     }
-}
+} */

@@ -1,4 +1,3 @@
-
 import React from 'react'
 import ProductsList from './ProductsList'
 import s from './Products.module.css'

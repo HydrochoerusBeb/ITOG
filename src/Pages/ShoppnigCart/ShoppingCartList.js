@@ -1,6 +1,5 @@
 import React from 'react'
 import s from './ShoppingCart.module.css'
-// import BasketListItem from './BasketListItem'
 import BasketListItem from './ShoppnigCartPageItem';
 import { useSelector } from 'react-redux';
 

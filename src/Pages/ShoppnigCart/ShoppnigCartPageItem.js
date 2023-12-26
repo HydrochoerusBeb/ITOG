@@ -1,7 +1,6 @@
 import React from 'react'
 import s from './ShoppingCart.module.css'
 import Amount from '../../UI/Counter/Counter'
-// import Cross from '../../../media/cross.svg'
 import Cross from '../../img/ic x.svg'
 import { useDispatch } from 'react-redux'
 import { changeCountAction, deleteFromBasketAction } from '../../Store/shoppingCartReducer'

@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import s from './Products.module.css';
-// import SalePercent from '../../../UI/SalePercent/SalePercent';
 import SalePercent from '../../UI/SalePercent/SalePercent';
-// import Button from '../../../UI/Button/Button';
-import Button from '../../UI/Button/Button'
 import { useDispatch } from 'react-redux';
-// import { addToCartNewItemAction } from '../../../store/basketReducer';
 import { addToCartNewItemAction } from '../../Store/shoppingCartReducer';
+import ButtonUniversal from '../../UI/ButtonUniversal/ButtonUniversal';
 
 export default function ProductListItem({ id, title, image, price, discontPrice }) {
 
@@ -27,26 +24,27 @@ export default function ProductListItem({ id, title, image, price, discontPrice 
             <div className={`${s.imgContainer}`}>
                 <img src={image} alt={title} className={`${s.img}`} />
                 <div className={`${s.buttonContainer}`}>
-                    <Button
-                        className={`${s.addToCartButton}`}
-                        title={sentState}
-                        textColor={'white'}
-                        color={'green'}
-                        onClick={(e) => {
-                            e.preventDefault();
-                            setSentState('Added')
-                            dispatch(addToCartNewItemAction({
-                                id: +id,
-                                title: title,
-                                price: price,
-                                discount_price: discontPrice,
-                                count: 1,
-                                image: image
-                            }));
-                            setTimeout(() => {
-                                setSentState('Add to cart')
-                            }, 200);
-                        }}
+                    <ButtonUniversal
+                    type={'normal'}
+                    className={`${s.addToCartButton}`}
+                    title={sentState}
+                    textColor={'white'}
+                    color={'green'}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        setSentState('Added')
+                        dispatch(addToCartNewItemAction({
+                            id: +id,
+                            title: title,
+                            price: price,
+                            discount_price: discontPrice,
+                            count: 1,
+                            image: image
+                        }));
+                        setTimeout(() => {
+                            setSentState('Add to cart')
+                        }, 200);
+                    }}
                     />
                 </div>
             </div>

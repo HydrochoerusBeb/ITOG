@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import s from './ShoppingCart.module.css'
 import { useForm } from 'react-hook-form'
-import DiscountButton from '../../UI/ButtonDiscount/ButtonDiscount'
 import Cross from '../../img/ic x.svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { BASE_URL } from '../../App'
 import { resetBasketAction } from '../../Store/shoppingCartReducer'
+import ButtonUniversal from '../../UI/ButtonUniversal/ButtonUniversal'
 
 
 export default function OrderForm() {
@@ -108,8 +108,7 @@ export default function OrderForm() {
                     {...inputEmail} >
                 </input>
                 {errors.Email && <p className={`${s.errortext}`}>{errors.Email.message}</p>}
-
-                <DiscountButton discountButtonText={discountButtonText} onClick={handleSubmit(onSubmit)} />
+                <ButtonUniversal discountButtonText={discountButtonText} onClick={handleSubmit(onSubmit)}/>
             </form>
             {openModal &&
                 <>
