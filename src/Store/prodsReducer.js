@@ -1,85 +1,77 @@
-const defaultData = []
-
-const GETALLPRODUCTS = 'GETALLPRODUCTS'
-const GETPRODUCTBYID = 'GETPRODUCTBYID'
-const GETALLPRODUCTSSALES = 'GETALLPRODUCTSSALES'
-const FILTER = 'FILTER'
-
-export const productsReducer = (state = defaultData, action) => {
-    switch (action.type) {
-
-        case GETALLPRODUCTS:
-            let changedAllProductsByFetch = action.payload.map(el => {
-                el.isShowSale = true
-                el.isShowPrice = true
-
-                return el
-            })
-            return changedAllProductsByFetch
-
-        case GETPRODUCTBYID:
-            return [...action.payload]
-
-        case GETALLPRODUCTSSALES:
-            let changedSaleProductsByFetch = action.payload.map(el => {
-                el.isShowSale = true
-                el.isShowPrice = true
-
-                return el
-            })
-            return changedSaleProductsByFetch
-
-        case FILTER:
-            const type = action.payload.type
-            if (type === 'bySale') {
-                let changedProductsBySale1 = state.map(el => {
-                    el.isShowSale = (!action.payload.data) ? true : (Boolean(el.discont_price))
-                    return el
-                })
-                return changedProductsBySale1
-            }
-            else if (type === 'byPrice') {
-                let { max, min } = action.payload.data
-                let changedProductsByPrice = state.map(el => {
-                    el.isShowPrice = true
-                    if (!(el.price >= min && el.price <= max)) {
-                        el.isShowPrice = false
-                    }
-                    return el
-                })
-                return changedProductsByPrice
-            }
-            else if (type === 'bySelect') {
-                let changedState = state
-                switch (action.payload.data) {
-                    case 'by default':
-                        let sortedByDefault = [...changedState]
-                        sortedByDefault.sort((a, b) => a.id - b.id)
-                        return sortedByDefault
-                    case 'newest':
-                        let newestSortedProducts = [...changedState];
-                        newestSortedProducts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-                        return newestSortedProducts;
-                    case 'price: high-low':
-                        let sortedProductsHighToLow = [...changedState]
-                        sortedProductsHighToLow.sort((a, b) =>  (b.discont_price || b.price) - (a.discont_price || a.price))
-                        return sortedProductsHighToLow
-                    case 'price: low-high':
-                        let sortedProductsLowToHigh = [...changedState]
-                        sortedProductsLowToHigh.sort((a, b) =>  (a.discont_price || a.price) - (b.discont_price || b.price))
-                        return sortedProductsLowToHigh
-                    default:
-                        return changedState;
-                }
-            }
-
-            break
-        default:
-            return state
-    }
+const defaultState = {
+  categories_name: '',
+  products: []
 }
 
-export const getAllProductsAction = (payload) => ({ type: GETALLPRODUCTS, payload })
-export const getProductByIDAction = (payload) => ({ type: GETPRODUCTBYID, payload })
-export const getAllProductsSalesAction = (payload) => ({ type: GETALLPRODUCTSSALES, payload })
-export const productsfilterAction = (payload) => ({ type: FILTER, payload })
+
+const GET_PRODUCTS = 'GET_PRODUCTS'
+const ALL_PRODUCTS = 'ALL_PRODUCTS'
+const ALL_PRODUCTS_SALE = 'ALL_PRODUCTS_SALE'
+const PRODUCTS_BY_CATEGORY = 'PRODUCTS_BY_CATEGORY'
+const ADD_PRODUCTS = 'ADD_PRODUCTS'
+const FILTER_BY_SALE = 'FILTER_BY_SALE'
+const FILTER_BY_PRICE = 'FILTER_BY_PRICE'
+
+
+
+export const prodsReducer = (state = defaultState, action) => {
+  switch (action.type) {
+    case ALL_PRODUCTS:
+      return {categories_name: 'All products', products: action.payload.map(elem => {
+        elem.isShowSale = true
+        elem.isShowPrice = true
+        return elem
+    })}
+    case ALL_PRODUCTS_SALE:
+      return {categories_name: 'Discounted products', products: action.payload.map(elem => {
+        elem.isShowSale = true
+        elem.isShowPrice = true
+        return elem
+    })}
+    case PRODUCTS_BY_CATEGORY:
+      return {categories_name: action.payload.category.title, products: action.payload.data.map(elem => {
+        elem.isShowSale = true
+        elem.isShowPrice = true
+        return elem
+    })}
+    case GET_PRODUCTS:
+      return [...action.payload]
+    
+  //   case ADD_PRODUCTS:
+  //       let changed_products_by_fetch = action.payload.map(elem => {
+  //           elem.isShowSale = true
+  //           elem.isShowPrice = true
+  //           return elem
+  //       })
+  //       return {products: changed_products_by_fetch}
+
+    case FILTER_BY_SALE:
+        let {checked, typeSale} = action.payload
+        let changed_products_by_sale = state.products.map(elem => {
+            elem.isShowSale = (!checked) ? true : Boolean(elem.discont_price)
+            return elem
+        })
+        return {categories_name:typeSale, products: changed_products_by_sale}
+
+    case FILTER_BY_PRICE:
+        let {max, min, type} = action.payload
+        let changed_products_by_price = state.products.map(elem => {
+            elem.isShowPrice = true
+            if (!(elem.price >= min && elem.price <= max)){
+                elem.isShowPrice = false
+            }
+            return elem
+        })
+        return {categories_name: type, products: changed_products_by_price}
+    
+      default:
+      return state
+  }
+}
+export const allProductsAction = (payload) => ({ type: ALL_PRODUCTS, payload });
+export const allProductsSaleAction = (payload) => ({ type: ALL_PRODUCTS_SALE, payload });
+export const productsByCategoryAction = (payload) => ({ type: PRODUCTS_BY_CATEGORY, payload });
+export const addProductsAction = (payload) => ({type: ADD_PRODUCTS, payload})
+export const filterBySaleAction = (payload) => ({type: FILTER_BY_SALE, payload})
+export const filterByPriceAction = (payload) => ({type: FILTER_BY_PRICE, payload})
+// export const getProductAction = (payload) => ({ type: GET_PRODUCTS, payload });

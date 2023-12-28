@@ -15,9 +15,14 @@
     border-radius: 12px;
 }
 
-.links {
+.links  {
     display: flex;
     align-items: center;
+}
+
+.links > a > img{
+    width: 100px;
+    height: 100px;
 }
 
 

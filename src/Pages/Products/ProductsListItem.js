@@ -4,6 +4,7 @@ import SalePercent from '../../UI/SalePercent/SalePercent';
 import { useDispatch } from 'react-redux';
 import { addToCartNewItemAction } from '../../Store/shoppingCartReducer';
 import ButtonUniversal from '../../UI/ButtonUniversal/ButtonUniversal';
+import { BASE_URL } from '../../App';
 
 export default function ProductListItem({ id, title, image, price, discontPrice }) {
 
@@ -22,7 +23,7 @@ export default function ProductListItem({ id, title, image, price, discontPrice 
         <div className={`${s.productListItem}`}>
             <div className={`${s.salePercentContainer}`}>{showSalePercent()}</div>
             <div className={`${s.imgContainer}`}>
-                <img src={image} alt={title} className={`${s.img}`} />
+                <img src={`${BASE_URL}${image}`} alt={title} className={`${s.img}`} />
                 <div className={`${s.buttonContainer}`}>
                     <ButtonUniversal
                     type={'normal'}

@@ -25,6 +25,8 @@
     width: 17vw;
     height: 17vw;
     border-radius: 12px;
+    object-fit: cover; 
+    object-position: center;
 }
 
 @media (width < 730px) {
@@ -37,3 +39,4 @@
         height: 40vw;
     }
 }
+

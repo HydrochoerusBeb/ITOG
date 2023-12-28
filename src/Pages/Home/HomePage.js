@@ -2,7 +2,7 @@ import Banner from '../../Components/Banner/Banner';
 import FormForDiscount from '../../Components/FormForDiscount/FormForDiscount';
 import LocateButton from '../../UI/LocateButton/LocateButton';
 import CategoryList from '../Categories/CategoriesList';
-import ProductsList from '../Products/ProductsList';
+import ProductsList from '../Sales/SalesList';
 
 
 function HomePage(){
@@ -11,7 +11,7 @@ function HomePage(){
         <div>
             <Banner/>
             <LocateButton header={'Categories'} link={'/categories/all'} linkText={'All categories'} />
-            <CategoryList displayCount={4}/>
+            <CategoryList count={4}/>
             <FormForDiscount/>
             <LocateButton header={'Sales'} link={'/products/sales'} linkText={'All sales'}/>
             <ProductsList title={'Categories'} type={'homesale'} displayCount={4} />

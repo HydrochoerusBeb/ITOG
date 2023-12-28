@@ -2,24 +2,28 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import s from './CategoriesPage.module.css';
 import CategoryItem from './CategoryItem';
-import { BASE_URL } from '../../App';
 import { Link } from 'react-router-dom';
-import { fetchAllCategories } from '../../AsyncActions/categories';
+import { fetchCategoriesList } from '../../AsyncActions/categories';
 
-export default function CategoryList({ displayCount }) {
-    const { data } = useSelector((store) => store.categories);
-    const displayedItems = data.slice(0, displayCount);
-    const dispatch = useDispatch();
+export default function CategoryList({count}) {
+    
+    const categories = useSelector(store => store.categories)
+    const dispatch = useDispatch()
+    console.log(categories)
+    
 
     useEffect(() => {
-        dispatch(fetchAllCategories());
-    }, [dispatch]);
+        dispatch(fetchCategoriesList());
+    }, [dispatch]); 
+
+    console.log(count)
+
 
     return (
         <div className={`${s.categoriesList}`}>
-            {displayedItems.map((el) => (
-                <Link to={`/categories/${el.id}`} key={el.id}>
-                    <CategoryItem id={el.id} title={el.title} src={`${BASE_URL + el.image}`} />
+            {categories.slice(0, count).map((elem) => ( 
+                <Link to={`/categories/${elem.id}`} key={elem.id}>
+                    <CategoryItem image={elem.image} id={elem.id} title={elem.title} />
                 </Link>
             ))}
         </div>

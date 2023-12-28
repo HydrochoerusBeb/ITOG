@@ -4,12 +4,10 @@ import BasketListItem from './ShoppnigCartPageItem';
 import { useSelector } from 'react-redux';
 
 export default function ShoppingCartList() {
-    const basket = useSelector((store) => store.basket);
-    console.log(basket);
-
+    const shopping_cart = useSelector((store) => store.shopping_cart);
     return (
         <div className={`${s.basketList}`}>
-            {basket.map(el => {
+            {shopping_cart.map(el => {
                 return <BasketListItem
                     key={el.id}
                     id={el.id}

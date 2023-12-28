@@ -6,13 +6,9 @@ import { useSelector } from 'react-redux';
 import React, { useState } from 'react';
 
 function Header(){
-    const [isMenuOpen, setMenuOpen] = useState(false);
-    const basket = useSelector(store => store.basket);
-    const basketLength = basket.length;
+    const shopping_cart = useSelector(store => store.shopping_cart);
+    const shopping_cart_length = shopping_cart.length;
 
-    const toggleMenu = () => {
-        setMenuOpen(!isMenuOpen);
-    };
 
     return(
         <div className={`${s.header}`}>
@@ -33,13 +29,8 @@ function Header(){
                     <p className={`${s.navBarText}`}>Sales</p>
                 </Link>
             </div>
-            <div className={s.burger} onClick={toggleMenu}>
-                <div className={`${s.bar} ${isMenuOpen ? s.open : ''}`}></div>
-                <div className={`${s.bar} ${isMenuOpen ? s.open : ''}`}></div>
-                <div className={`${s.bar} ${isMenuOpen ? s.open : ''}`}></div>
-            </div>
             <Link to="/shopping_cart">
-                {basketLength > 0 && <p className={`${s.countBasket}`}>{basket.reduce((total, item) => total + item.count , 0)}</p>}
+                {shopping_cart_length > 0 && <p className={`${s.countShoppingCart}`}>{shopping_cart.reduce((total, item) => total + item.count , 0)}</p>}
                 <img className={`${s.icon}`} src={icon} alt="Shopping Cart"/>
             </Link>
         </div>

@@ -11,19 +11,19 @@ import LocateButton from '../../UI/LocateButton/LocateButton';
 export default function ShoppingCartPage() {
 
     const navigate = useNavigate()
-    const basket = useSelector((store) => store.basket);
+    const shopping_cart = useSelector((store) => store.shopping_cart);
 
 
     return (
 
         <div className={`${s.basketPage}`}>
             <LocateButton header={'Shopping cart'} link={'/products/all'} linkText={'Back to the store'}/>
-            {basket.length === 0 ?
-                <div className={`${s.emptyBasket}`}>
+            {shopping_cart.length === 0 ?
+                <div className={`${s.emptyShoppingCart}`}>
                     <p>Looks like you have no items in your basket currently.</p>
                     <ButtonUniversal title={'Continue shopping'} color={'green'} textColor={'white'} size={'big'} onClick={() => navigate('/products/all')}/>
                 </div> :
-                <div className={`${s.basket}`}>
+                <div className={`${s.shoppingCart}`}>
                     <ShoppingCartList />
                     <OrderForm />
                 </div>

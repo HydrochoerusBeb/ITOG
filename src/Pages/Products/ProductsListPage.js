@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductsList from './ProductsList'
+import ProductsList from '../Sales/SalesList'
 import s from './Products.module.css'
 
 export default function ProductsListPage({ type, title }) {

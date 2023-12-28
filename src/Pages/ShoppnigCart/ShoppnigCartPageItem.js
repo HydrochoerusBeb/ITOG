@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './ShoppingCart.module.css'
-import Amount from '../../UI/Counter/Counter'
+import Counter from '../../UI/Counter/Counter'
 import Cross from '../../img/ic x.svg'
 import { useDispatch } from 'react-redux'
 import { changeCountAction, deleteFromBasketAction } from '../../Store/shoppingCartReducer'
@@ -25,7 +25,7 @@ export default function BasketListItem({ id, title, price, image, discountPrice,
             <div className={`${s.info}`}>
                 <p>{title}</p>
                 <div className={`${s.counterPrice}`}>
-                    <Amount
+                    <Counter
                         id={id}
                         count={count}
                         onChange={count < 1 && dispatch(deleteFromBasketAction(id))}

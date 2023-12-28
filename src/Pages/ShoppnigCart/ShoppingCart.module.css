@@ -2,11 +2,11 @@
     width: 100%;
 }
 
-.emptyBasket {
+.emptyShoppingCart {
     margin: 10px;
 }
 
-.basket {
+.shoppingCart {
     margin: 10px;
     display: flex;
     align-items: flex-start;

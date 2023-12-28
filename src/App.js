@@ -4,10 +4,10 @@ import HomePage from './Pages/Home/HomePage';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import CategoryPage from './Pages/Categories/CategoriesPage';
-import ProductsListPage from './Pages/Products/ProductsListPage';
-import ProductPage from './Pages/Product/ProductPage';
 import ShoppingCartPage from './Pages/ShoppnigCart/ShoppingCartPage';
-import OneCategoryPage from './Pages/OneCategory/OneCategoryPage'
+import UniversalProductPage from './Pages/OneCategory/OneCategoryPage';
+import SingleProductPage from './Pages/Product/SingleProductPage';
+import Error from './Pages/404_page/404_page';
 
 export const BASE_URL = 'http://localhost:3333/'
 
@@ -19,11 +19,12 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage/>}></Route>
           <Route path='/categories/all' element={<CategoryPage/>}/>
-          <Route path='/categories/:id' element={<OneCategoryPage/>}></Route>
-          <Route path='/products/all' element={<ProductsListPage type={'all'} title={'All Products'}/>}></Route>
-          <Route path='/products/:id' element={<ProductPage />}></Route>
-          <Route path='/products/sales' element={<ProductsListPage type={'sale'} title={'Discounted'}/>}></Route>
+          <Route path='/categories/:id' element={<UniversalProductPage type='categories'/>} ></Route>
+          <Route path='/products/all' element={<UniversalProductPage type='all'/>} ></Route>
+          <Route path='/product/:id' element={<SingleProductPage/>}></Route>
+          <Route path='/products/sales' element={<UniversalProductPage type='sale'/>}></Route>
           <Route path='/shopping_cart' element={<ShoppingCartPage />}></Route>
+          <Route path='*' element={<Error/>}></Route>
         </Routes>
       <Footer/>
       </BrowserRouter>

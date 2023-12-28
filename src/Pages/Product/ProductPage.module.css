@@ -4,6 +4,13 @@
     margin: 10px;
 }
 
+
+
+.ProductLayout{
+    display: flex;
+    gap: 50px;
+}
+
 .img {
     width: 40vw;
     height: 40vw;
@@ -56,33 +63,4 @@
 
 .text>p {
     color: rgba(40, 40, 40, 1);
-}
-
-
-@media (width < 1360px) {
-    .product {
-        display: flex;
-        flex-direction: column;
-        margin: 10px;
-    }
-
-    .img {
-        width: 60vw;
-        height: 60vw;
-    }
-
-    .textContent>h3 {
-        text-align: center;
-    }
-}
-
-@media (width < 470px) {
-    .flex {
-        flex-direction: column;
-    }
-
-    .productPrices {
-        justify-content: center;
-        width: auto;
-    }
 }

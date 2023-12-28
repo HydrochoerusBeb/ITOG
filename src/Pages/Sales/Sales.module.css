@@ -1,0 +1,68 @@
+.img {
+    width: 300px;
+    height:  400px;
+    border-radius: 5%;
+}
+
+.SalesCard{
+    display: flex;
+    /* gap: 32px; */
+    margin-left: 32px;
+    flex-direction: column;
+    width: 316px;
+    height: 422px;
+    align-items: center;
+    position: relative;
+}
+
+.percent{
+    position: absolute;
+    left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(51, 153, 51, 1);
+    color: white;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.PriceBox{
+    display: flex;
+}
+
+.PriceBox>div{
+    margin: 10px;
+}
+
+.discount{
+    font-size: 25px;
+}
+
+.price{
+    text-decoration:line-through;
+}
+/* 
+.buttonBuy{
+    
+} */
+
+
+.salePercentContainer{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.productListItem{
+    position: relative;
+    
+}
+
+.SalesList{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
